@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pakistan Giving Report 2025 - Infographic</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .infographic {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #00b09b 0%, #96c93d 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 0;
+        }
+        
+        .stat-card {
+            padding: 40px;
+            text-align: center;
+            border-right: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .stat-card.highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .highlight .stat-number {
+            color: #ffd700;
+            -webkit-text-fill-color: #ffd700;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.4;
+        }
+        
+        .highlight .stat-label {
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .insights-section {
+            padding: 50px 40px;
+            background: #f8f9fa;
+        }
+        
+        .insights-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: #333;
+        }
+        
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .insight-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-left: 5px solid #4ecdc4;
+        }
+        
+        .insight-card h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .insight-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .comparison-section {
+            padding: 40px;
+            background: white;
+        }
+        
+        .comparison-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        
+        .comparison-bars {
+            display: flex;
+            justify-content: space-around;
+            align-items: end;
+            height: 200px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        
+        .bar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            margin: 0 10px;
+        }
+        
+        .bar-fill {
+            width: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 30px 30px 0 0;
+            margin-bottom: 10px;
+            transition: height 1s ease;
+        }
+        
+        .bar-label {
+            font-size: 0.9rem;
+            text-align: center;
+            color: #666;
+            font-weight: bold;
+        }
+        
+        .bar-value {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .footer {
+            background: #333;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .footer p {
+            opacity: 0.8;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .stat-card {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .stat-card:nth-child(1) { animation-delay: 0.1s; }
+        .stat-card:nth-child(2) { animation-delay: 0.2s; }
+        .stat-card:nth-child(3) { animation-delay: 0.3s; }
+        .stat-card:nth-child(4) { animation-delay: 0.4s; }
+        .stat-card:nth-child(5) { animation-delay: 0.5s; }
+        .stat-card:nth-child(6) { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <div class="infographic">
+        <div class="header">
+            <h1>🇵🇰 Pakistan Giving Report 2025</h1>
+            <p>A Nation's Generosity: Key Insights from 1,049 Survey Respondents</p>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-card highlight">
+                <div class="stat-number">73%</div>
+                <div class="stat-label">of Pakistanis donated money in 2024<br><small>(Above global average of 64%)</small></div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-number">1.64%</div>
+                <div class="stat-label">of income donated on average<br><small>(vs 1.04% globally)</small></div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-number">17th</div>
+                <div class="stat-label">rank globally for generosity<br><small>(out of 101 countries)</small></div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-number">51%</div>
+                <div class="stat-label">donate directly to people in need<br><small>(highest giving route)</small></div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-number">16%</div>
+                <div class="stat-label">volunteered time in 2024<br><small>(vs 26% globally)</small></div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-number">58%</div>
+                <div class="stat-label">give due to religious obligation<br><small>(top motivation for giving)</small></div>
+            </div>
+        </div>
+        
+        <div class="comparison-section">
+            <h2 class="comparison-title">How Pakistan Compares Globally</h2>
+            <div class="comparison-bars">
+                <div class="bar">
+                    <div class="bar-fill" style="height: 120px;"></div>
+                    <div class="bar-value">73%</div>
+                    <div class="bar-label">Pakistan<br>Money Donors</div>
+                </div>
+                <div class="bar">
+                    <div class="bar-fill" style="height: 100px; background: linear-gradient(135deg, #ff6b6b 0%, #ee5a5a 100%);"></div>
+                    <div class="bar-value">64%</div>
+                    <div class="bar-label">Global<br>Average</div>
+                </div>
+                <div class="bar">
+                    <div class="bar-fill" style="height: 32px;"></div>
+                    <div class="bar-value">16%</div>
+                    <div class="bar-label">Pakistan<br>Volunteers</div>
+                </div>
+                <div class="bar">
+                    <div class="bar-fill" style="height: 52px; background: linear-gradient(135deg, #ff6b6b 0%, #ee5a5a 100%);"></div>
+                    <div class="bar-value">26%</div>
+                    <div class="bar-label">Global<br>Volunteers</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="insights-section">
+            <h2 class="insights-title">Key Insights</h2>
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <h3>💰 Giving Preference</h3>
+                    <p>44.7% of donations go directly to people in need, reflecting preference for informal, personal giving over formal charity channels.</p>
+                </div>
+                
+                <div class="insight-card">
+                    <h3>🕌 Religious Motivation</h3>
+                    <p>Faith-based giving is deeply embedded in culture, with religious obligation being the top reason for 58% of donors.</p>
+                </div>
+                
+                <div class="insight-card">
+                    <h3>🤝 Trust in Charities</h3>
+                    <p>Pakistanis show higher trust in charities (10.4/15) compared to global average (9.22/15), especially local charities.</p>
+                </div>
+                
+                <div class="insight-card">
+                    <h3>🎯 Top Causes</h3>
+                    <p>Poverty relief (39%), religious organizations (38%), and homelessness (30%) are the most supported causes.</p>
+                </div>
+                
+                <div class="insight-card">
+                    <h3>📈 Frequency</h3>
+                    <p>39% of donors give 6+ times per year, showing consistent giving habits tied to religious and cultural occasions.</p>
+                </div>
+                
+                <div class="insight-card">
+                    <h3>🔍 Discovery</h3>
+                    <p>19% discover charities through local presence, highlighting importance of community visibility over social media.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Source: World Giving Report 2025 | Survey of 1,049 Pakistani respondents | Pakistan Centre for Philanthropy & Charities Aid Foundation</p>
+        </div>
+    </div>
+</body>
+</html>
